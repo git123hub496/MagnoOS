@@ -45,7 +45,7 @@ Run a SHA-256 check to make sure your reassembled ISO is complete and uncorrupte
 
 Expected SHA-256 checksum:
 ```text
-<YOUR-SHA256-HASH-HERE>
+<c4cde40b042dafbe229a2e8505572aa7ba29f329fe2bb1bd1b943228888e9226>
 ```
 
 ---

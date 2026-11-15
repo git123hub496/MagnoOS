@@ -23,29 +23,26 @@ MagnoOS is built around **security**, **stability**, **flexibility**, and **cust
 
 ---
 
-## Step 1: Download & Reassemble the ISO
+## Step 1: Download & Extract the ISO
 
-Because GitHub limits individual release files to 2 GB, the 6 GB MagnoOS ISO is split into four parts. Download **all four parts** (`MagnoOS.iso.part00` through `MagnoOS.iso.part03`) from the [Releases](../../releases) page into the same folder, then reassemble them using the command for your current OS:
+Because GitHub limits individual release files to 2 GB, the 6 GB MagnoOS ISO is split into four parts. Download **all four files** (`MagnoOS-1.0-amd64.iso.7z.001` through `.004`) from the [Releases](../../releases) page into the same folder, then extract them:
 
-### Linux / macOS
-```bash
-cat MagnoOS.iso.part* > MagnoOS.iso
-```
-
-### Windows (Command Prompt)
-```cmd
-copy /b MagnoOS.iso.part* MagnoOS.iso
-```
+* **Windows:** Install [7-Zip](https://7-zip.org), right-click **`MagnoOS-1.0-amd64.iso.7z.001`**, and choose **7-Zip > Extract Here**.
+* **Linux:** Open a terminal in the download folder and run:
+  ```bash
+  7z x MagnoOS-1.0-amd64.iso.7z.001
+  ```
+* **macOS:** Extract **`MagnoOS-1.0-amd64.iso.7z.001`** using [The Unarchiver](https://theunarchiver.com) or `7z x MagnoOS-1.0-amd64.iso.7z.001` via Homebrew (`brew install p7zip`).
 
 ### Verify Your Download (Optional)
-Run a SHA-256 check to make sure your reassembled ISO is complete and uncorrupted:
-* **Linux:** `sha256sum MagnoOS.iso`
-* **macOS:** `shasum -a 256 MagnoOS.iso`
-* **Windows (Command Prompt):** `certutil -hashfile MagnoOS.iso SHA256`
+Run a SHA-256 check on the extracted `MagnoOS-1.0-amd64.iso` to make sure your download is complete and uncorrupted:
+* **Windows (Command Prompt):** `certutil -hashfile MagnoOS-1.0-amd64.iso SHA256`
+* **Linux:** `sha256sum MagnoOS-1.0-amd64.iso`
+* **macOS:** `shasum -a 256 MagnoOS-1.0-amd64.iso`
 
 Expected SHA-256 checksum:
 ```text
-<c4cde40b042dafbe229a2e8505572aa7ba29f329fe2bb1bd1b943228888e9226>
+c4cde40b042dafbe229a2e8505572aa7ba29f329fe2bb1bd1b943228888e9226
 ```
 
 ---
@@ -53,7 +50,7 @@ Expected SHA-256 checksum:
 ## Step 2: Flash & Boot MagnoOS
 
 1. Download and open [balenaEtcher](https://balena.io).
-2. Select your reassembled `MagnoOS.iso` file and your USB flash drive (**8 GB or larger**), then click **Flash**.
+2. Select your extracted `MagnoOS-1.0-amd64.iso` file and your USB flash drive (**8 GB or larger**), then click **Flash**.
 3. Restart your PC and open your **One-Time Boot Menu** (commonly `F12`, `F11`, `F2`, or `Esc` depending on your motherboard).
 4. Select your USB drive and follow the **First-Boot Menu** steps on screen to set up MagnoOS.
 

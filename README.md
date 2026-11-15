@@ -1,35 +1,81 @@
 # MagnoOS
-Download MagnoOS here!
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/fcbe1cb9-c24f-47a9-ae88-e14835fcee10" />
-MagnoOS is a basic simple OS that uses less ram.
-It is based off of Linux Mint and we stripped out all the bloat.
-We made it more straightforward and easy to use!
 
+**MagnoOS** is a lightweight, fast, and straightforward operating system based on Linux Mint. We stripped out the bloat to give you a clean desktop that uses less RAM and stays easy to use.
 
+---
 
+## Why MagnoOS?
 
-# Steps to install MagnoOS
-Download the .iso file from the releases.
-Pick what your computers chip architecture is. (ONLY AMD IS SUPPORTED AT THE MOMMENT)
-Use BalenaEtcher to flash the iso onto the Flash Drive (8gb or more)
-Get to the one time boot menu and follow the steps on the first-boot menu to setup MagnoOS.
+MagnoOS is built around **security**, **stability**, **flexibility**, and **customization**—giving you full control over your desktop without unnecessary background services slowing you down.
 
-# After Installation
-After Installation the OS is still running from your Flash Drive, you can install it on your internal hard drive with the cmd "sudo magno-install-ssd"
-When prompted type your sudo password and restart your computer once told. MagnoOS will now be up and running on your computer!
+### Built-In Magno Features
+* **Magno Clipboard:** Keeps a searchable history of everything you copy.
+* **Magno Screenshots:** A fast, simple, and easy-to-use screenshot tool.
+* **Magno Spotlight:** Search the web and your local files from one place.
+* **Magno Mirror:** Mirror and interact with your phone screen right from your desktop *(Android only)*.
+* **Magno Updater:** Delivers system updates at least once a week.
 
-# Installing Updates
-You may need to install updates, follow the steps listed below to get them.
-1: Open up the Magno Grid (Super key) and find Magno Updater.
-2: Once opened press the Check_Install Updates button and let it finish installing.
-3: When prompted restart your computer to install the MagnoOS updates.
+---
 
+## System Requirements
+* **CPU Architecture:** AMD64 / x86_64 *(Only AMD processors are supported at the moment)*
+* **USB Flash Drive:** 8 GB or larger
 
-# Why Magno?
-You can choose MagnoOS because of it security, stability, flexability, And how much it can be custimized.
-Magno Features:
-Magno Clipboard: A clipboard that keeps track of all things you copyed.
-Magno Screenshots: Simple easy to use screenshot service.
-Magno Spotlight: Search everything about the web, your PC.
-Magno Mirror: Mirror your phones screen onto your desktop (Android Only). Interact with your phone on your desktop.
-Magno Updater: Updates at least once a week.
+---
+
+## Step 1: Download & Reassemble the ISO
+
+Because GitHub limits individual release files to 2 GB, the 6 GB MagnoOS ISO is split into four parts. Download **all four parts** (`MagnoOS.iso.part00` through `MagnoOS.iso.part03`) from the [Releases](../../releases) page into the same folder, then reassemble them using the command for your current OS:
+
+### Linux / macOS
+```bash
+cat MagnoOS.iso.part* > MagnoOS.iso
+```
+
+### Windows (Command Prompt)
+```cmd
+copy /b MagnoOS.iso.part* MagnoOS.iso
+```
+
+### Verify Your Download (Optional)
+Run a SHA-256 check to make sure your reassembled ISO is complete and uncorrupted:
+* **Linux:** `sha256sum MagnoOS.iso`
+* **macOS:** `shasum -a 256 MagnoOS.iso`
+* **Windows (Command Prompt):** `certutil -hashfile MagnoOS.iso SHA256`
+
+Expected SHA-256 checksum:
+```text
+<YOUR-SHA256-HASH-HERE>
+```
+
+---
+
+## Step 2: Flash & Boot MagnoOS
+
+1. Download and open [balenaEtcher](https://balena.io).
+2. Select your reassembled `MagnoOS.iso` file and your USB flash drive (**8 GB or larger**), then click **Flash**.
+3. Restart your PC and open your **One-Time Boot Menu** (commonly `F12`, `F11`, `F2`, or `Esc` depending on your motherboard).
+4. Select your USB drive and follow the **First-Boot Menu** steps on screen to set up MagnoOS.
+
+---
+
+## Step 3: Install to Your Internal Drive
+
+Once you finish the first-boot setup, MagnoOS will still be running live from your USB flash drive. To install it permanently onto your internal SSD or hard drive:
+
+1. Open the terminal and run:
+   ```bash
+   sudo magno-install-ssd
+   ```
+2. Enter your `sudo` password when prompted.
+3. Restart your computer once the installer tells you it is finished (and remove your USB drive). MagnoOS will now boot directly from your computer!
+
+---
+
+## Step 4: Installing Updates
+
+After booting into your installed system, check for the latest updates:
+
+1. Open the **Magno Grid** by pressing the **Super** (Windows) key and open **Magno Updater**.
+2. Click the **Check_Install Updates** button and wait for the updates to finish installing.
+3. Restart your computer when prompted to apply your MagnoOS updates.
